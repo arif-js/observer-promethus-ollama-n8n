@@ -50,6 +50,8 @@ n8n start
 ```
 *Ensure **Ollama** is running locally with `llama3.1` pulled.*
 
+![n8n Workflow Preview](./SS.png)
+
 ### 4. Run the Infrastructure
 ```bash
 # In Terminal 3
