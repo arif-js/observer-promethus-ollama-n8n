@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 30s 
+
+scrape_configs:
+  - job_name: "aegis-app"
+    static_configs:
+      - targets: ["app:3000"]
+
+remote_write:
+  - url: "https://monitoring.googleapis.com/v1/projects/<YOUR_GCP_PROJECT_ID>/location/us-central1/prometheus/v1/write"
+    # Note: Authentication is handled by the GOOGLE_APPLICATION_CREDENTIALS environment variable in Docker

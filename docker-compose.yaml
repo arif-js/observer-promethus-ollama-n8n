@@ -1,0 +1,28 @@
+services:
+  app:
+    build: ./app
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  prometheus:
+    # Official Google Managed Service for Prometheus (GMP) image
+    image: gke.gcr.io/prometheus-engine/prometheus:v2.53.5-gmp.1-gke.2
+    container_name: aegis-prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./gcp-key.json:/etc/prometheus/gcp-key.json
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/etc/prometheus/gcp-key.json
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--export.label.project-id=<YOUR_GCP_PROJECT_ID>"
+      - "--export.label.location=us-central1"
+    ports:
+      - "9090:9090"
+
