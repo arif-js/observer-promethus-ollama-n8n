@@ -1,13 +1,13 @@
 {
-  "displayName": "Aegis-High-CPU",
+  "displayName": "Aegis-Chaos-Alert",
   "combiner": "OR",
   "conditions": [
     {
-      "displayName": "CPU utilization above 80%",
+      "displayName": "Chaos Alert Triggered",
       "conditionThreshold": {
-        "filter": "resource.type = \"gce_instance\" AND metric.type = \"compute.googleapis.com/instance/cpu/utilization\"",
+        "filter": "metric.type = \"prometheus.googleapis.com/app_critical_alert/gauge\"",
         "comparison": "COMPARISON_GT",
-        "thresholdValue": 0.8,
+        "thresholdValue": 0,
         "duration": "60s",
         "trigger": {
           "count": 1

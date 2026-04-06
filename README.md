@@ -24,6 +24,8 @@ Aegis is a hybrid-cloud, self-healing MVP that monitors a local Node.js applicat
 - `prometheus/prometheus.yml`: Configuration for scraping and Remote Write to GCP.
 - `docker-compose.yaml`: Orchestration for the App and Prometheus.
 - `gcp-key.json`: **(EXCLUDED)** GCP Service Account key with `Monitoring Metric Writer` and `Compute Admin` roles.
+- `policy.json`: Alerting policy configuration for GCP.
+- `test-alert.sh`: Script to trigger or resolve the mock critical alert.
 
 ---
 
