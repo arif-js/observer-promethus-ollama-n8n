@@ -1,6 +1,6 @@
-# 🛡️ Aegis AI: Autonomous SRE Agent
+# Autonomous SRE Agent
 
-Aegis is a hybrid-cloud, self-healing MVP that monitors a local Node.js application using **GCP Managed Service for Prometheus**, analyzes incidents via a local **Ollama (Llama 3.1)** instance, and notifies/remediates via **n8n** and **Slack**.
+It is a hybrid-cloud, self-healing MVP that monitors a local Node.js application using **GCP Managed Service for Prometheus**, analyzes incidents via a local **Ollama (Llama 3.1)** instance, and notifies/remediates via **n8n** and **Slack**.
 
 ---
 
@@ -33,6 +33,8 @@ In a real-life production environment, this architecture scales to handle enterp
 - `prometheus/prometheus.yml`: Configuration for scraping and Remote Write to GCP.
 - `docker-compose.yaml`: Orchestration for the App and Prometheus.
 - `gcp-key.json`: **(EXCLUDED)** GCP Service Account key with `Monitoring Metric Writer` and `Compute Admin` roles.
+- `policy.json`: Alerting policy configuration for GCP.
+- `test-alert.sh`: Script to trigger or resolve the mock critical alert.
 
 ---
 

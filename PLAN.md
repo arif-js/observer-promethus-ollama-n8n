@@ -8,7 +8,7 @@ Aegis is an autonomous SRE (Site Reliability Engineering) agent designed to brid
 Google Cloud acts as the "remote sensor" that stays awake 24/7, even if your local machine is under heavy load.
 * **Action:** Enable the **Cloud Monitoring API** in project `<YOUR_GCP_PROJECT_ID>`.
 * **Infrastructure:** Utilize **GCP Managed Service for Prometheus (GMP)**. This provides a managed endpoint that accepts metrics from your local environment via "Remote Write."
-* **Auth:** Use a Service Account (`aegis-monitor-sa`) with `roles/monitoring.metricWriter` and `roles/compute.admin`.
+* **Auth:** Use a Service Account (`aegis-agent`) with `roles/monitoring.metricWriter` and `roles/compute.admin`.
 * **Output:** A `gcp-key.json` file used for both pushing metrics and allowing n8n to perform "Self-Healing" actions.
 * **Alerting Policies:** 
     1. **Chaos Alert:** Monitors the custom metric `app_critical_alert > 0` to detect simulated resource spikes.
@@ -35,8 +35,8 @@ n8n acts as the "nervous system," connecting the alert to the AI and the final a
 ## 5. Slack: The Executive Notification
 The final step is keeping the human-in-the-loop informed.
 * **Action:** Integrate with the **Slack API**.
-* **The Message:** > "🚨 **Aegis Alert**: High Memory on `instance-01`. 
-    > 🤖 **AI Analysis**: Memory leak detected in Auth module. 
+* **The Message:** > "🚨 **Aegis Alert**: Chaos Alert on `instance-01`.
+    > 🤖 **AI Analysis**: Chaos alert gauge is set to 1.
     > ✅ **Action**: Service restarted successfully. View logs at [Link]."
 
 ---
@@ -57,7 +57,7 @@ $$\text{Local App} \xrightarrow{\text{Metrics}} \text{GCP (GMP)} \xrightarrow{\t
 | **Phase 2** | Local Docker (Node.js + Prometheus Remote Write) | ✅ Done |
 | **Phase 3** | ngrok + n8n Webhook Connectivity | ✅ Done |
 | **Phase 4** | Ollama Llama 3.1 Prompt Engineering | ✅ Done |
-| **Phase 5** | Slack Notification Integration | ⏳ Pending |
+| **Phase 5** | Slack Notification Integration | ✅ Done |
 
 ---
 
