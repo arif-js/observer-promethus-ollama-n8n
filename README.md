@@ -19,6 +19,15 @@ Aegis is a hybrid-cloud, self-healing MVP that monitors a local Node.js applicat
 
 ---
 
+## 🌍 Production Scenario
+
+In a real-life production environment, this architecture scales to handle enterprise workloads:
+- **Cloud LLMs:** Instead of a local Ollama instance, n8n can query powerful cloud LLMs (like OpenAI, Google Gemini, or Anthropic Claude) for deep log analysis and fix generation.
+- **Cloud n8n:** You can utilize n8n Cloud (or a robust self-hosted instance) to manage workflows securely without relying on local tunneling (ngrok).
+- **Advanced Remediation:** The AI agent can go beyond simple server restarts. It can write code fixes, automatically create Pull Requests (PRs) for review, and notify the team on Slack for human-in-the-loop approval before executing changes.
+
+---
+
 ## 📁 Directory Structure
 - `app/`: Node.js Express application with `prom-client`.
 - `prometheus/prometheus.yml`: Configuration for scraping and Remote Write to GCP.
