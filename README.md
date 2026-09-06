@@ -13,7 +13,7 @@ It is a hybrid-cloud, self-healing MVP that monitors a application logs using **
     * On breach, GCP sends a Webhook to your **ngrok tunnel**.
 4.  **The Orchestrator (n8n):**
     * Receives the alert via ngrok.
-    * **Ollama Node** analyzes the JSON payload to identify root causes.
+    * **AI Node** analyzes the JSON payload to identify root causes.
     * **Google Cloud Node** uses `gcp-key.json` to execute remediation (e.g., Restart Instance).
 5.  **The Result (Slack):** Sends a summary and action report to your Slack workspace.
 
