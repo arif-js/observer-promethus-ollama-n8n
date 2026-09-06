@@ -1,6 +1,6 @@
 # Autonomous SRE Agent
 
-It is a hybrid-cloud, self-healing MVP that monitors a local Node.js application using **GCP Managed Service for Prometheus**, analyzes incidents via a local **Ollama (Llama 3.1)** instance, and notifies/remediates via **n8n** and **Slack**.
+It is a hybrid-cloud, self-healing MVP that monitors a application logs using **GCP Managed Service for Prometheus**, analyzes incidents via a AI agent instance, and notifies/remediates via **n8n** and **Slack**.
 
 ---
 
